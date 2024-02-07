@@ -20,20 +20,70 @@ class Candado {
   });
 }
 
-List<Candado> generarCandadosAleatorios() {
+List<Candado> generarCandadosAleatoriosTaller() {
   List<String> lugares = ['I', 'M', 'L', 'V'];
-  List<String> responsables = ['Joshue', 'Jordy', 'Oliver', 'Oswaldo', 'Fabian'];
+  List<String> responsables = [
+    'Joshue',
+    'Jordy',
+    'Oliver',
+    'Oswaldo',
+    'Fabian'
+  ];
   Random random = Random();
 
   List<Candado> listaCandados = [];
 
   for (int i = 0; i < 50; i++) {
-    String numeroCandado = (93 + random.nextInt(85638 - 93 + 1)).toString().padLeft(4, '0');
+    String numeroCandado =
+        (93 + random.nextInt(85638 - 93 + 1)).toString().padLeft(4, '0');
     String razonIngreso = 'Razon de ingreso ${random.nextInt(100)}';
     String razonSalida = 'Razon de salida ${random.nextInt(100)}';
     String responsable = responsables[random.nextInt(responsables.length)];
-    DateTime fechaIngreso = DateTime(2023 + random.nextInt(2), random.nextInt(12) + 1, random.nextInt(28) + 1);
-    DateTime fechaSalida = DateTime(2023 + random.nextInt(2), random.nextInt(12) + 1, random.nextInt(28) + 1);
+    DateTime fechaIngreso = DateTime(2023 + random.nextInt(2),
+        random.nextInt(12) + 1, random.nextInt(28) + 1);
+    DateTime fechaSalida = DateTime(2023 + random.nextInt(2),
+        random.nextInt(12) + 1, random.nextInt(28) + 1);
+    String lugar = lugares[random.nextInt(lugares.length)];
+
+    Candado nuevoCandado = Candado(
+      numero: numeroCandado,
+      razonIngreso: razonIngreso,
+      razonSalida: razonSalida,
+      responsable: responsable,
+      fechaIngreso: fechaIngreso,
+      fechaSalida: fechaSalida,
+      lugar: lugar,
+    );
+
+    listaCandados.add(nuevoCandado);
+  }
+
+  return listaCandados;
+}
+
+List<Candado> generarCandadosAleatoriosLlegar() {
+  List<String> lugares = ['NAPORTEC', 'DPW', 'TPG', 'MANTA', 'CUENCA', 'QUITO'];
+  List<String> responsables = [
+    'Joshue',
+    'Jordy',
+    'Oliver',
+    'Oswaldo',
+    'Fabian'
+  ];
+  Random random = Random();
+
+  List<Candado> listaCandados = [];
+
+  for (int i = 0; i < 30; i++) {
+    String numeroCandado =
+        (93 + random.nextInt(85638 - 93 + 1)).toString().padLeft(4, '0');
+    String razonIngreso = 'Razon de ingreso ${random.nextInt(100)}';
+    String razonSalida = 'Razon de salida ${random.nextInt(100)}';
+    String responsable = responsables[random.nextInt(responsables.length)];
+    DateTime fechaIngreso = DateTime(2023 + random.nextInt(2),
+        random.nextInt(12) + 1, random.nextInt(28) + 1);
+    DateTime fechaSalida = DateTime(2023 + random.nextInt(2),
+        random.nextInt(12) + 1, random.nextInt(28) + 1);
     String lugar = lugares[random.nextInt(lugares.length)];
 
     Candado nuevoCandado = Candado(
